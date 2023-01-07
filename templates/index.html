@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %} Image segmentation {% endblock %}
+{% block pageHeading%} Image Segmentation {% endblock %}
+{% block navTitle %} Image segmentation{% endblock %}
+{% block pageBody %} 
+<form action="#" method="post" class="p-3 w-50 mx-auto" enctype="multipart/form-data">
+    <div class="choose-model m-3">
+        <label for="model_selection" class="form-label">Select model</label>
+        <select class="form-select" name="input_model_selection" id="model_selection">
+            <option value="1">UNet</option>
+            <option value="2">Attention UNet</option>
+            <option value="3">Random forest</option>
+        </select>
+    </div>
+
+    <div class="choose-image m-3">
+        <label for="image_input" class="form-label">Choose image</label>
+        <input type="file"  name="input_image_file" class="form-control" id="image_input">
+    </div>
+
+    <div class="submit-form m-3">
+        <!-- <input type="submit" value="Predict" class="form-control"> -->
+        <button type="submit" class="form-control">Predict</button>
+    </div>
+</form>
+{% endblock %}

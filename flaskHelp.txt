@@ -1,0 +1,67 @@
+# --------------------------------- LESSON 1 --------------------------------- #
+from flask import Flask, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "HELLO <h1>blah<h1>"
+
+@app.route("/<name>,<name2>")
+def user(name, name2):
+    return f"Hello {name} AND {name2}"
+
+@app.route("/admin")
+def admin():
+    return redirect(url_for("user", name="NotAdmin", name2="StillNotAdmin"))
+
+
+if __name__ == "__main__":
+    app.run(debug=True); 
+
+# ---------------------------------------------------------------------------- #
+# --------------------------------- LESSON 2 --------------------------------- #
+
+
+@app.route("/<name>")
+def home(name):
+    return render_template("index.html", content=name, r=2)
+
+can access content, r in the HTML using {{ content }}
+or if running python code, {% if (content) %}
+
+    <!-- {% for item in content %}
+        {% item_str = str(item) %}
+        <p>{{item_str}}</p>
+        <p>---------</p>
+    {% endfor %} -->
+
+# ---------------------------------------------------------------------------- #
+
+from flask import Flask, redirect, url_for, render_template
+
+app = Flask(__name__)
+
+@app.route("/<name>")
+def home(name):
+    return render_template("index.html", content={'name': name, 'age': 22,  'legs': 2})
+
+
+if __name__ == "__main__":
+    app.run(debug=True); 
+
+
+
+<body>
+    <h1>HOME PAGE</h1>
+    <p>Welcome, {{ content['name'] }}</p>
+
+    {% for i in content %}
+        <p>{{i}} -> {{content[i]}}</p>
+    {% endfor %}
+
+
+</body>
+
+# ---------------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #

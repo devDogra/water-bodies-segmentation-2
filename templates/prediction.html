@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} Output {% endblock %}
+{% block pageHeading%} Output mask and original image {% endblock %}
+
+
+
+{% block pageBody %} 
+<div 
+class="mx-auto my-5 d-flex border"
+style="width:calc(min(80vh, 80vw));"
+>
+    <img src="{{mask_load_path}}" alt="" 
+    class="mx-1 border" 
+    style="flex: 1 1 auto"
+    >
+
+    <img src="{{input_load_path}}" alt="" 
+    class="mx-1 border "  
+    style="flex: 1 1 auto"
+    >
+
+
+</div>
+    
+{% endblock %}
