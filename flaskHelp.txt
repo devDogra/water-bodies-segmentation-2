@@ -1,3 +1,6 @@
+# NOTE: We had to add **kwarg in init to make this work, 
+# for both modules
+
 # --------------------------------- LESSON 1 --------------------------------- #
 from flask import Flask, redirect, url_for
 

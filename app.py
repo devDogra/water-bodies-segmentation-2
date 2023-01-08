@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request, flash
 
 import module1 as m1
-# import module2 as m2
+import module2 as m2
 # import module3 as m3
 
 app = Flask(__name__)
@@ -31,8 +31,17 @@ def home():
             output_image_path = m1.predictAndSaveOutputFor(input_image_file.filename)
 
             return render_template("prediction.html", mask_load_path=output_image_path, input_load_path=input_image_path)
+        elif (input_model_selection == "2"):
+            # then AttentionUNet was picked
+            # outputs format: imagename_modelname_MASK.jpg
+            # will be in static/, of course
+            model_name = "AttentionUNet"
+            output_image_path = m2.predictAndSaveOutputFor(input_image_file.filename)
+
+            return render_template("prediction.html", mask_load_path=output_image_path, input_load_path=input_image_path)
+
         else:
-            return "not model 1 nygga"
+            return "not model 1 or 2 nygga"
         # return render_template("index.html"); 
 
 

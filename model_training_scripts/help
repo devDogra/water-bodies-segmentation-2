@@ -1,0 +1,4 @@
+this folder contains the code that we will use to produce the trained models, 
+like UNet.h5 and AttentionUNet.h5. We dont really need these in the app,
+but it's good to keep em for the final yr project cuz they'd wanna see
+this shit badly
